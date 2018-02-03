@@ -1,5 +1,5 @@
 object f_login: Tf_login
-  Left = 396
+  Left = 327
   Top = 264
   Width = 329
   Height = 212
@@ -68,14 +68,21 @@ object f_login: Tf_login
     PasswordChar = '*'
     TabOrder = 1
   end
-  object b_login: TButton
+  object Panel2: TPanel
     Left = 216
-    Top = 136
-    Width = 75
-    Height = 25
+    Top = 128
+    Width = 73
+    Height = 33
     Caption = 'LOGIN'
+    Color = clMaroon
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 2
-    OnClick = b_loginClick
+    OnClick = Panel2Click
   end
   object ADOConnection1: TADOConnection
     ConnectionString = 

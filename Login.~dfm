@@ -1,5 +1,5 @@
-object Form1: TForm1
-  Left = 396
+object f_login: Tf_login
+  Left = 327
   Top = 264
   Width = 329
   Height = 212
@@ -30,16 +30,28 @@ object Form1: TForm1
   object Label2: TLabel
     Left = 24
     Top = 56
-    Width = 63
-    Height = 16
+    Width = 74
+    Height = 20
     Caption = 'Username'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
   end
   object Label3: TLabel
     Left = 24
     Top = 88
-    Width = 60
-    Height = 16
+    Width = 69
+    Height = 20
     Caption = 'Password'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
   end
   object tb_username: TEdit
     Left = 120
@@ -56,14 +68,21 @@ object Form1: TForm1
     PasswordChar = '*'
     TabOrder = 1
   end
-  object b_login: TButton
+  object Panel2: TPanel
     Left = 216
-    Top = 136
-    Width = 75
-    Height = 25
+    Top = 128
+    Width = 73
+    Height = 33
     Caption = 'LOGIN'
+    Color = clMaroon
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 2
-    OnClick = b_loginClick
+    OnClick = Panel2Click
   end
   object ADOConnection1: TADOConnection
     ConnectionString = 

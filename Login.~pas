@@ -4,19 +4,20 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, DB, ADODB;
+  Dialogs, StdCtrls, DB, ADODB, ExtCtrls;
 
 type
-  TForm1 = class(TForm)
+  Tf_login = class(TForm)
     Label1: TLabel;
     Label2: TLabel;
-    Label3: TLabel;
     tb_username: TEdit;
     tb_password: TEdit;
-    b_login: TButton;
     ADOConnection1: TADOConnection;
     q_temp: TADOQuery;
+    Label3: TLabel;
+    Panel2: TPanel;
     procedure b_loginClick(Sender: TObject);
+    procedure Panel2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -24,7 +25,7 @@ type
   end;
 
 var
-  Form1: TForm1;
+  f_login: Tf_login;
 
 implementation
 
@@ -32,7 +33,7 @@ uses Dashboard;
 
 {$R *.dfm}
 
-procedure TForm1.b_loginClick(Sender: TObject);
+procedure Tf_login.Panel2Click(Sender: TObject);
 begin
   if (tb_username.Text = '') then
     begin
@@ -47,7 +48,6 @@ begin
 
       if (q_temp.RecordCount <> 0) then
         begin
-          Self.Hide;
           f_dashboard.ShowModal();
         end
       else

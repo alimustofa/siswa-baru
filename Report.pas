@@ -15,11 +15,8 @@ type
     PageFooterBand1: TQRBand;
     Label10: TLabel;
     Label1: TLabel;
-    b_back: TButton;
     GroupBox2: TGroupBox;
     cb_jurusan: TComboBox;
-    b_preview: TButton;
-    b_print: TButton;
     Label3: TLabel;
     QRLabel1: TQRLabel;
     QRLabel2: TQRLabel;
@@ -39,9 +36,16 @@ type
     ADOConnection1: TADOConnection;
     q_report: TADOQuery;
     DataSource1: TDataSource;
+    Image3: TImage;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Panel3: TPanel;
     procedure b_backClick(Sender: TObject);
-    procedure b_previewClick(Sender: TObject);
-    procedure b_printClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure cb_jurusanKeyPress(Sender: TObject; var Key: Char);
+    procedure Image3Click(Sender: TObject);
+    procedure Panel2Click(Sender: TObject);
+    procedure Panel3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -59,11 +63,36 @@ uses Dashboard;
 
 procedure Tf_report.b_backClick(Sender: TObject);
 begin
-  Self.Hide;
-  f_dashboard.ShowModal();
+  Self.Close;
 end;
 
-procedure Tf_report.b_previewClick(Sender: TObject);
+procedure Tf_report.FormShow(Sender: TObject);
+begin
+  q_report.Close;
+  q_report.SQL.Clear;
+  q_report.SQL.Add('SELECT * FROM jurusan');
+  q_report.Open;
+
+  cb_jurusan.Clear;
+
+  while (q_report.Eof = false) do
+    begin
+      cb_jurusan.Items.Add(q_report.Fields[1].AsString);
+      q_report.Next;
+    end;
+end;
+
+procedure Tf_report.cb_jurusanKeyPress(Sender: TObject; var Key: Char);
+begin
+  Key:=#0;
+end;
+
+procedure Tf_report.Image3Click(Sender: TObject);
+begin
+  Self.Close;
+end;
+
+procedure Tf_report.Panel2Click(Sender: TObject);
 var
   sql1, sql2, sqlType:String;
 begin
@@ -94,7 +123,7 @@ begin
     end
 end;
 
-procedure Tf_report.b_printClick(Sender: TObject);
+procedure Tf_report.Panel3Click(Sender: TObject);
 begin
   QuickRep1.Print;
 end;
